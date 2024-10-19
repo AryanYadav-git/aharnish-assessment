@@ -1,24 +1,32 @@
 "use client"
 
 import { Input } from "./ui/input";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Label } from "./ui/label";
 
-const LoanDetailsForm = () => {
-  const [loanDetails, setLoanDetails] = useState({
-    amount: 0,
-    interest: 0,
-    duration: 0,
-    startDate: 0,
-  });
+const LoanDetailsForm = ({setCalculatedEmi, loanDetails, setLoanDetails}: any) => {
+  const calculateEmi = (amount: number, interest: number, duration: number) => {
+    const monthlyRate = (interest / 100) / 12;
+    const payment = 
+      (amount * monthlyRate * Math.pow(1 + monthlyRate, duration)) /
+      (Math.pow(1 + monthlyRate, duration) - 1);
+      return payment.toFixed(2);
+  }
 
-  const handleChange = (e: any) => {
+  const handleChange = async (e: any) => {
     const { name, value } = e.target;
-    setLoanDetails(prevDetails => ({
+    //@ts-ignore
+    await setLoanDetails(prevDetails  => ({
       ...prevDetails,
       [name]: value
     }));
   };
+
+  useEffect(()=> {
+    const { amount, interest, duration } = loanDetails;
+    const emi = calculateEmi(amount, interest, duration);
+    setCalculatedEmi(emi);
+  }, [loanDetails])
 
   return (
     <div className="p-8 bg-[#f4eee6] flex flex-col gap-4">
@@ -30,7 +38,7 @@ const LoanDetailsForm = () => {
           className="border-black" 
           id="amount" 
           name="amount" 
-          value={loanDetails.amount} 
+          value={`${loanDetails.amount}`} 
           onChange={handleChange}
         />
       </div>
@@ -57,15 +65,13 @@ const LoanDetailsForm = () => {
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
         <Label htmlFor="startDate">Start Date</Label>
-        <Input 
-          className="border-black" 
+        <input type="month" className="border-black border p-1 rounded-md bg-inherit" 
           id="startDate" 
           name="startDate" 
           value={loanDetails.startDate} 
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
       </div>
     </div>
   );
