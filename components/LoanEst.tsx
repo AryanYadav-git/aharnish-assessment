@@ -14,7 +14,7 @@ import React from 'react'
 const LoanEst = (loanEst: LoanEstParams) => {
   const { calculatedEmi, amount, totalLoanPayments, totalInterestPayments, payoffDate } = loanEst;
   return (
-    <div className='grid grid-cols-1 w-full p-4 border-2 gap-3'>
+    <div className='grid grid-cols-1 w-full p-4 border gap-3'>
       <h1 className='font-bold mb-2'>Your loan estimate</h1>
       <div className="grid grid-cols-3">
         <div className="col-span-1">

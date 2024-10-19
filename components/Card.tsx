@@ -23,7 +23,7 @@ const Card = ({calculatedEmi, loanDetails}: any) => {
     payoffDate
   }
   return (
-    <div className="flex flex-col col-span-2 gap-2">
+    <div className="flex flex-col col-span-2">
       <LoanEst {...loanEst}/>
       <Amortization calculatedEmi={calculatedEmi} loanDetails={loanDetails}/>
     </div>
