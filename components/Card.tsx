@@ -1,5 +1,6 @@
 "use client"
 
+import Amortization from "./Amortization";
 import LoanEst from "./LoanEst";
 
 const Card = ({calculatedEmi, loanDetails}: any) => {
@@ -24,6 +25,7 @@ const Card = ({calculatedEmi, loanDetails}: any) => {
   return (
     <div className="flex flex-col col-span-2 gap-2">
       <LoanEst {...loanEst}/>
+      <Amortization calculatedEmi={calculatedEmi} loanDetails={loanDetails}/>
     </div>
   )
 }
