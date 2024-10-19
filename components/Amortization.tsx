@@ -62,7 +62,7 @@ const AmortizationSchedule = ({ calculatedEmi, loanDetails }: any) => {
         className="bg-inherit rounded-none shadow-none text-lg text-black h-14 font-semibold w-full hover:bg-[#eef7ff] "
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? (
+        {!isOpen ? (
           <div className="flex w-full justify-between items-center ">
             Show amortization schedule
             <ChevronDown className="size-4" />

@@ -1,16 +1,5 @@
 import React from 'react'
 
-// interface LoanEstParams {
-//   calculatedEmi: any;
-//   amount: any;
-//   totalLoanPayments: number;
-//   totalInterestPayments: string;
-//   payoffDate: {
-//       month: number;
-//       year: string;
-//   };
-// }
-
 const LoanEst = (loanEst: LoanEstParams) => {
   const { calculatedEmi, amount, totalLoanPayments, totalInterestPayments, payoffDate } = loanEst;
   return (
