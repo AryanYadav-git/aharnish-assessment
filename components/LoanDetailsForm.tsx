@@ -29,7 +29,7 @@ const LoanDetailsForm = ({setCalculatedEmi, loanDetails, setLoanDetails}: any) =
   }, [loanDetails])
 
   return (
-    <div className="p-8 bg-[#f4eee6] flex flex-col gap-4">
+    <div className="p-6 pb-12 bg-[#f4eee6] col-span-1 flex flex-col h-fit gap-4 w-full">
       <h1 className="font-semibold text-lg mb-2">Loan details</h1>
 
       <div>
@@ -57,7 +57,7 @@ const LoanDetailsForm = ({setCalculatedEmi, loanDetails, setLoanDetails}: any) =
       <div>
         <Label htmlFor="duration">Loan Term (months)</Label>
         <Input 
-          className="border-black w-72" 
+          className="border-black " 
           id="duration" 
           name="duration" 
           value={loanDetails.duration} 
