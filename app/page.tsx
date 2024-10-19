@@ -13,7 +13,7 @@ export default function Home() {
     startDate: "2024-10",
   });
   return (
-    <div className="flex justify-center px-40 ">
+    <div className="flex justify-center md:px-10 lg:px-40 ">
     <div className=" grid grid-cols-1 md:grid-cols-3 w-full py-12 h-full gap-4">
       <LoanDetailsForm  loanDetails={loanDetails} setLoanDetails={setLoanDetails} setCalculatedEmi={setCalculatedEmi}/>
       <Card loanDetails={loanDetails} calculatedEmi ={calculatedEmi}/>
