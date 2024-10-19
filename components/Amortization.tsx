@@ -70,7 +70,7 @@ const AmortizationSchedule = ({ calculatedEmi, loanDetails }: any) => {
         ) : (
           <div className="flex w-full justify-between items-center ">
             Hide amortization schedule
-            <ChevronUp className="size-4 rotate-180" />
+            <ChevronUp className="size-4 " />
           </div>
         )}
       </Button>
